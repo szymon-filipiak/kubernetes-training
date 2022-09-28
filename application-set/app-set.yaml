@@ -2,7 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: appset
-  namespace: agrocd
 spec:
   generators:
   - git:
@@ -21,4 +20,3 @@ spec:
         path: application-set/
       destination:
         server: '{{url}}'
-        namespace: appset
