@@ -8,7 +8,7 @@ spec:
       repoURL: https://github.com/szymon-filipiak/kubernetes-training.git
       revision: HEAD
       directories:
-      - path: app-of-apps/root-app/*
+      - path: app-of-apps/*
   template:
     metadata:
       name: '{{cluster}}-appset'
