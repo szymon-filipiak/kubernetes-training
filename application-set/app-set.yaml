@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: appset
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/szymon-filipiak/kubernetes-training.git
+      revision: HEAD
+      directories:
+      - path: app-of-apps/root-app/*
+  template:
+    metadata:
+      name: '{{cluster}}-appset'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/szymon-filipiak/kubernetes-training.git
+        targetRevision: HEAD
+        path: application-set/
+      destination:
+        server: '{{url}}'
+        namespace: appset
